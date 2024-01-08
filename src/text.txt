@@ -1,0 +1,23 @@
+롬복 라이브러리
+자바 클래스에서 반복적으로 작성되는 getter setter toString
+생성자 코드 등의 소스들을 Annotation을 사용해 생략할 수 있도록
+컴파일 시점에 자동으로 생성해주는 라이브러리
+
+log4j 개념
+ - 로그레벨
+ - Appender
+
+
+MyBatis(iBatis)
+ -pstmt rs의 처리를 알아서 해준다.
+ -close 처리 (conn, pstmt, rs) 처리해준다.
+ -SQL 분리 xml로 query 부분을 분리해서 사용한다.
+
+Mybatis는 독립된 라이브러리
+Spring에서는 MyBatis와 연동을 쉽게 처리할 수 있는
+라이브러리와 API 제공함.
+ - MyBatis를 단독으로 개발하고 스프링에서 DAO를 작성해서
+ 처리하는 방식
+ - MyBatis와 Spring을 연동하고 Mapper 인터페이스만 이용하는 방식
+
+
