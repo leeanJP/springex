@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--MVC 설정을 어노테이션 기반으로 처리한다-->
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
 
     <!--이미지나 정적인 html 파일의 경로를 지정-->
     <mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
@@ -16,4 +16,12 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <set>
+                <bean class="com.example.springex.controller.fomatter.LocalDateFormatter"/>
+            </set>
+        </property>
+    </bean>
+    <context:component-scan base-package="com.example.springex.controller"/>
 </beans>

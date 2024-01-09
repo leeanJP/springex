@@ -28,6 +28,7 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!-- Encoding 필터 설정-->
     <filter>
         <filter-name>encoding</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
