@@ -21,3 +21,21 @@ Spring에서는 MyBatis와 연동을 쉽게 처리할 수 있는
  - MyBatis와 Spring을 연동하고 Mapper 인터페이스만 이용하는 방식
 
 
+MyBatis, Spring을 통한 영속처리
+ 1.VO선언
+ 2.Mapper 인터페이스
+ 3.xml
+ 4.테스트 코드 작성
+
+@NotNull - null x
+@Null - null o
+@NotEmpty null, 빈문자열 x
+@NotBlank null, 빈문자열, 스페이스만 있는 공백 x
+@Size(min=,max=)  문자열, 배열 사이즈 만족하는지
+@Pattern(regex=)   정규식 만족하는지
+@Max(num)    지정값 이하인지
+@Min(num)    지정값 이상인지
+@Future       현재보다 미래인지
+@Past         현재보다 과거인지
+
+

@@ -1,4 +1,4 @@
-package com.example.springex.controller.fomatter;
+package com.example.springex.controller.formatter;
 
 import org.springframework.format.Formatter;
 
