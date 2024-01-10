@@ -9,5 +9,8 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
+<a href="/todo/list">리스트</a>
+<a href="/todo/register">등록</a>
+
 </body>
 </html>

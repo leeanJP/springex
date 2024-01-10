@@ -15,6 +15,7 @@
 <body>
   <div class="card-body">
     <h5 class="card-title">title</h5>
+    <button type="button" id="register" class="btn btn-primary">등록</button>
     <table class="table">
       <thead>
         <tr>
@@ -42,5 +43,11 @@
       </tbody>
     </table>
   </div>
+
+  <script>
+    document.querySelector('#register').addEventListener('click',function (){
+      location.href = "/todo/register";
+    })
+  </script>
 </body>
 </html>

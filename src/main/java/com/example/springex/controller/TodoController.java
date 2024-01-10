@@ -73,10 +73,11 @@ public class TodoController {
     public String modify(@Valid TodoDTO todoDTO,
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes){
-        log.info("todo modify");
+        log.info("todo modify" +todoDTO);
         if(bindingResult.hasErrors()){
             log.info("has errors..");
             redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            redirectAttributes.addAttribute("tno", todoDTO.getTno());
             return "redirect:/todo/modify";
         }
         todoService.modify(todoDTO);
