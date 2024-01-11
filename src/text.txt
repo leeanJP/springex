@@ -39,3 +39,19 @@ MyBatis, Spring을 통한 영속처리
 @Past         현재보다 과거인지
 
 
+검색 / 필터링 조건 정의
+ - 제목, 작성자 키워드를 이용해서 검색 처리
+ - 완료 여부 필터링 처리
+ - 특정기간 form to
+ 필요한 데이터
+ keyword
+ finished
+ date ( from, to)
+
+ MyBatis
+  쿼리를 만들 수 있는 태그들을 지원한다.
+  if
+  trim
+  choose (when, otherwise)
+  foreach
+
