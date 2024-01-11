@@ -18,42 +18,29 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Search</h5>
-          <form action="/todo/list" method="get">
+          <form action="/todo/list" id="search" method="get">
             <input type="hidden" name="size" value="${pageRequestDTO.size}"/>
             <div class="mb-3">
-              <input type="checkbox" name="finished"
-<%--              ${pageRequestDTO.finished?"checked":""}--%>
-              >완료여부
+              <input type="checkbox" name="finished" ${pageRequestDTO.finished?"checked":""}>완료여부
             </div>
             <div class="mb-3">
-              <input type="checkbox" name="types" value="t"
-<%--              ${pageRequestDTO.checkType("t")?"checked":""}--%>
-              >제목
-              <input type="checkbox" name="types" value="w"
-<%--              ${pageRequestDTO.checkType("w")?"checked":""}--%>
-              >작성자
-              <input type="text" name="keyword" class="form-control"
-<%--                     value='<c:out value="${pageRequestDTO.keyword}"/>'--%>
-              >
+              <input type="checkbox" name="types" value="t" ${pageRequestDTO.checkType("t")?"checked":""}>제목
+              <input type="checkbox" name="types" value="w" ${pageRequestDTO.checkType("w")?"checked":""}>작성자
+              <input type="text" name="keyword" class="form-control" value='<c:out value="${pageRequestDTO.keyword}"/>'>
 
             </div>
             <div class="input-group mb-3 dueDateDiv">
-              <input type="date" name="from" class="form-control"
-<%--                     value="${pageRequestDTO.from}"--%>
-              >
-              <input type="date" name="to" class="form-control"
-<%--                     value="${pageRequestDTO.to}"--%>
-              >
+              <input type="date" name="from" class="form-control" value="${pageRequestDTO.from}">
+              <input type="date" name="to" class="form-control" value="${pageRequestDTO.to}">
             </div>
             <div class="mb-3">
               <div class="float-end">
                 <button class="btn btn-primary" type="submit">Search</button>
-                <button class="btn btn-info clearBtn" type="reset">Clear</button>
+                <button class="btn btn-info" type="reset" id="reset">Clear</button>
               </div>
             </div>
           </form>
         </div>
-
       </div>
     </div>
   </div>
@@ -126,8 +113,18 @@
         return
       }
       const num = target.getAttribute('data-num');
-      location.href = `/todo/list?page=\${num}`;
+      const formObj = document.querySelector('form');
+      formObj.innerHTML += `<input type='hidden' name='page' value='\${num}'>`
+      formObj.submit();
+
+      //location.href = `/todo/list?page=\${num}`;
     },false)
+
+    document.querySelector('#reset').addEventListener('click', function (){
+        location.href = '/todo/list';
+    })
+
+
   </script>
 </body>
 </html>
