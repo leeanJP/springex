@@ -15,41 +15,43 @@
 <body>
     <div class="card-body">
         <form action="/todo/modify" method="post">
-        <div class="input-group mb-3">
-            <span class="input-group-text">TNO</span>
-            <input type="text" name="tno" class="form-control"
-                    value="<c:out value="${dto.tno}"></c:out>" readonly>
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text">Title</span>
-            <input type="text" name="title" class="form-control"
-                    value="<c:out value="${dto.title}"></c:out>" >
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text">DueDate</span>
-            <input type="date" name="dueDate" class="form-control"
-                    value="<c:out value="${dto.dueDate}"></c:out>" >
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text">Writer</span>
-            <input type="text" name="writer" class="form-control"
-                    value="<c:out value="${dto.writer}"></c:out>" readonly>
-        </div>
-        <div class="form-check">
-            <label class="form-check-label">
-                finished &nbsp;
-                <input type="checkbox" name="finished" class="form-check-control"
-                        ${dto.finished?"checked":""} >
-            </label>
-        </div>
-
-        <div class="my-4">
-            <div class="float-end">
-                <button type="button" id="remove" class="btn btn-danger">Remove</button>
-                <button type="button" id="modify" class="btn btn-primary">Modify</button>
-                <button type="button" id="list" class="btn btn-primary">List</button>
+            <input type="hidden" name="page" value="${pageRequestDTO.page}">
+            <input type="hidden" name="size" value="${pageRequestDTO.size}">
+            <div class="input-group mb-3">
+                <span class="input-group-text">TNO</span>
+                <input type="text" name="tno" class="form-control"
+                        value="<c:out value="${dto.tno}"></c:out>" readonly>
             </div>
-        </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Title</span>
+                <input type="text" name="title" class="form-control"
+                        value="<c:out value="${dto.title}"></c:out>" >
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">DueDate</span>
+                <input type="date" name="dueDate" class="form-control"
+                        value="<c:out value="${dto.dueDate}"></c:out>" >
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Writer</span>
+                <input type="text" name="writer" class="form-control"
+                        value="<c:out value="${dto.writer}"></c:out>" readonly>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    finished &nbsp;
+                    <input type="checkbox" name="finished" class="form-check-control"
+                            ${dto.finished?"checked":""} >
+                </label>
+            </div>
+
+            <div class="my-4">
+                <div class="float-end">
+                    <button type="button" id="remove" class="btn btn-danger">Remove</button>
+                    <button type="button" id="modify" class="btn btn-primary">Modify</button>
+                    <button type="button" id="list" class="btn btn-primary">List</button>
+                </div>
+            </div>
         </form>
     </div>
 
@@ -87,7 +89,7 @@
         },false);
 
         document.querySelector('#list').addEventListener('click', function (){
-            self.location = '/todo/list';
+            self.location = '/todo/list?${pageRequestDTO.link}';
         },false);
     </script>
 

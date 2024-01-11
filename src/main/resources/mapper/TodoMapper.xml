@@ -32,4 +32,8 @@
     <select id="selectList" resultType="com.example.springex.domain.TodoVO">
         select * from tbl_todo order by tno desc limit #{skip}, #{size}
     </select>
+
+    <select id="getCount" resultType="int">
+        select count(tno) from tbl_todo
+    </select>
 </mapper>
