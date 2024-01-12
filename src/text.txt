@@ -55,3 +55,47 @@ MyBatis, Spring을 통한 영속처리
   choose (when, otherwise)
   foreach
 
+
+XML (EXtensible Markup Language)
+ -데이터를 저장하고 전달할 목적
+
+ -다른 시스템끼리 데이터를 쉽게 교환할 수 있게 해준다.
+ -새로운 태그를 만들어서 추가해도 계속해서 동작하므로 확장성이 좋다.
+ -데이터를 보여주지 않고 전달하고 저장하는 목적으로 사용됨
+ -xml 문서는 유니코드 문자로 이루어진다.
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes|no" ?>
+   xml문서 버전         인코딩방식       외부소스의 데이터에 의존하는지 여부(defaule no)
+
+
+xml문법
+
+1. 모든 요소는 종료 태그
+<test> </test>
+2. xml은 대소문자 구분한다.
+3. 여닫는 순서도 지켜야된다.
+<p><strong> </strong> </p>
+4. 태그 속성값은 속성="속성값"
+5. 띄워쓰기도 인식한다
+
+
+sqlMapper 에서 xml파일 사용 시에
+< > 대소구분 기호는 인식 못함 (xml의 태그 여닫는 것으로 인식함)
+그래서 이 부분에 <![CDATA[ 쿼리 ]]> 이런식으로 작성해줘야 함
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,5 @@
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -11,6 +13,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+
+
+
 </head>
 <body>
 
@@ -55,7 +60,7 @@
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text">DueDate</span>
-                                <input type="date" name="dueDate" class="form-control" placeholder="Writer">
+                                <input type="date" id="dueDate" name="dueDate" class="form-control" placeholder="Writer">
                             </div>
 
                             <div class="input-group mb-3">
@@ -97,6 +102,14 @@
 </div>
 
 <script>
+
+    window.onload = function (){
+        var today = new Date();
+        today.setDate(today.getDate() + 1);
+        var tomorrow = today.toISOString().split('T')[0];
+        document.getElementById('dueDate').min = tomorrow
+    }
+
     const serverValidResult = {}
     <c:forEach items="${errors}" var="error">
         serverValidResult['${error.getField()}'] = '${error.defaultMessage}'
